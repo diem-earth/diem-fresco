@@ -1,0 +1,25 @@
+component,x,y,width,height,area_px,distance_to_map_px,reason
+L19,34044,770,4,26,100,>600,right canvas edge sliver
+L20,34045,918,3,27,78,>600,right canvas edge sliver
+L21,34045,1006,3,27,78,>600,right canvas edge sliver
+L35,33496,5263,37,49,1261,>600,severed street stub outside map body (bottom-right)
+L36,32793,5265,53,47,1352,>600,severed street stub outside map body (bottom-right)
+L37,32487,5266,50,46,1319,>600,severed street stub outside map body (bottom-right)
+L38,32546,5266,30,46,1187,>600,severed street stub outside map body (bottom-right)
+L39,31544,5269,42,43,1123,>600,severed street stub outside map body (bottom-right)
+L40,31082,5270,52,42,1208,>600,severed street stub outside map body (bottom-right)
+L32,838,3722,39,33,680,>600,"isolated anti-aliased blob, 2.6k px west of map body"
+L34,0,5244,10,28,256,>600,left canvas edge bar (bottom-left corner)
+L17,4239,384,2,2,3,289,sub-threshold Canny residue west of peripherique
+L18,4092,645,4,11,25,307,sub-threshold Canny residue west of peripherique
+L22,3938,1532,10,2,17,171,sub-threshold Canny residue west of peripherique
+L23,3910,1555,3,4,7,204,sub-threshold Canny residue west of peripherique
+L24,3823,2736,1,1,1,206,gray dust chain fragment west of peripherique
+L25,3947,2740,1,1,1,89,gray dust chain fragment west of peripherique
+L26,3949,2741,1,1,1,87,gray dust chain fragment west of peripherique
+L27,3951,2742,4,3,6,81,gray dust chain fragment west of peripherique
+L28,3956,2744,1,1,1,79,gray dust chain fragment west of peripherique
+L29,3958,2745,3,2,3,75,gray dust chain fragment west of peripherique
+L30,3963,2747,1,1,1,72,gray dust chain fragment west of peripherique
+L31,3733,3010,8,6,29,143,isolated speck west of peripherique
+L33,3630,4308,5,2,6,17,floating fleck in white pocket near SW interchange

@@ -1,0 +1,17 @@
+# --- OS noise ---
+.DS_Store
+Thumbs.db
+
+# --- personal tooling (local Claude Code session settings) ---
+.claude/
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- heavy regenerable intermediates (rebuilt by pipeline/stage2/s01-s04) ---
+pipeline/stage2/work/
+*.npy
+*.npz

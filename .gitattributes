@@ -1,0 +1,20 @@
+# ---- Git LFS: raster/binary artifacts ----
+# Rationale: keeps clone/history light as masks and (later) generated fresco
+# tiles are re-rendered across versions. Text artifacts (JSON/SVG/MD/PY) stay
+# in plain git so they remain diffable and reviewable.
+*.tif  filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.png  filter=lfs diff=lfs merge=lfs -text
+*.jpg  filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text
+*.psd  filter=lfs diff=lfs merge=lfs -text
+*.exr  filter=lfs diff=lfs merge=lfs -text
+
+# ---- text normalization ----
+*.md   text
+*.py   text
+*.json text
+*.svg  text
+*.geojson text
+*.csv  text

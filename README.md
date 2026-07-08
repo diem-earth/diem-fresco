@@ -1,11 +1,15 @@
 # Diem Fresco — Paris Centre
 
-Canonical repository for the **Diem fresco**: a 2.88 m × 0.45 m printed artwork built on
-the street network of central Paris (1:5000, 300 dpi, 34 048 × 5 312 px), rotated so the
-Grand Axis **Étoile → Concorde → Louvre → Bastille → Nation** runs horizontally.
+Canonical repository for the **Diem fresco**: a 2.88 m × 0.45 m printed artwork
+(34 048 × 5 312 px, 300 dpi) composed of **three panels** — the street network of central
+Paris (1:5000, rotated so the Grand Axis **Étoile → Concorde → Louvre → Bastille → Nation**
+runs horizontally) flanked by two convex partial-hexagon tilings of the surrounding
+French regions, their areas proportional to real surfaces (left 5 088 px: western
+regions; right 6 000 px: eastern regions; zigzag interfaces hugging the périphérique).
 
 Pipeline: `master geometry → multi-scale decomposition → AI generation → compositing → print`
-(stages 1–2 complete and in this repo; see [docs/PIPELINE.md](docs/PIPELINE.md)).
+for the center; the extremity panels are finished geometry
+(see [docs/PIPELINE.md](docs/PIPELINE.md) for the full architecture and how panels join).
 
 ## The two ground truths
 
@@ -27,6 +31,8 @@ diem_master_geometry_v1.tiff     stage-1 canonical master  (+ .png twin)
 MASTER_GEOMETRY_REPORT.md        stage-1 report (what was cleaned and why)
 qa/                              stage-1 proof: removal manifest, before/after, reproduce_master.py
 decomposition/                   stage-2 deliverables: masks/ meta/ viz/ reports/
+extremities/                     left/right region panels: optimize.py, inputs/, outputs/
+                                 (final_positions.json = canonical panel geometry)
 pipeline/
   sources/                       frozen external data (Paris Open Data, OSM 2026-07)
   stage2/                        s01…s07 pipeline scripts + checkpoints/ (decision records)

@@ -7,6 +7,7 @@
 | `diem_master_geometry_v1.tiff` | `python qa/reproduce_master.py` (needs `canny_final.tiff`) | **verified** — script self-checks every removed component and was re-run against the shipped master |
 | `decomposition/meta/*` and `decomposition/masks/*` | `pipeline/stage2/s05…s07` from committed checkpoints | **verified as-run** — these three scripts are the exact session scripts (paths adapted) |
 | checkpoints themselves | `pipeline/stage2/s01…s04` | **consolidated** — see caveat below |
+| `extremities/outputs/*` | `cd extremities && python optimize.py both` | **as-shipped** — self-contained upstream project (imported 2026-07-08, layout verbatim); needs `imageio` in addition to the stage-2 stack; optimizer is deterministic given the fixed vertex definitions in `optimize.py` |
 
 ## The honest caveat on s01–s04
 

@@ -1,0 +1,211 @@
+{
+  "panel": "left",
+  "canvas": {
+    "width": 5088,
+    "height": 5312
+  },
+  "constraints": {
+    "max_angle_deg": 155.0,
+    "min_angle_deg": 25.0
+  },
+  "fixed_vertices": {
+    "Q0": [
+      4707,
+      0
+    ],
+    "Q1": [
+      4078,
+      1531
+    ],
+    "Q2": [
+      4118,
+      2481
+    ],
+    "Q3": [
+      3741,
+      3547
+    ],
+    "Q4": [
+      3408,
+      5311
+    ]
+  },
+  "optimized_vertices": {
+    "P1": [
+      2173.04,
+      0
+    ],
+    "P2": [
+      2577.57,
+      611.49
+    ],
+    "P3": [
+      0,
+      812.88
+    ],
+    "P4": [
+      2252.39,
+      871.97
+    ],
+    "P5": [
+      0,
+      2397.96
+    ],
+    "P6": [
+      2128.05,
+      1189.83
+    ],
+    "P7": [
+      2552.92,
+      5311
+    ],
+    "P8": [
+      1328.79,
+      1951.58
+    ]
+  },
+  "implicit_corners": {
+    "TL": [
+      0,
+      0
+    ],
+    "BL": [
+      0,
+      5311
+    ]
+  },
+  "regions": [
+    {
+      "name": "Bretagne",
+      "vertices": [
+        "TL",
+        "P3",
+        "P4",
+        "P2",
+        "P1"
+      ],
+      "target_fraction": 0.095441,
+      "achieved_fraction": 0.095441,
+      "relative_error_pct": 0.0,
+      "pixel_area": 2014981.6,
+      "interior_angles_deg": [
+        90.0,
+        91.5,
+        139.8,
+        95.2,
+        123.5
+      ],
+      "max_angle_deg": 139.8
+    },
+    {
+      "name": "Normandie",
+      "vertices": [
+        "P1",
+        "P2",
+        "Q1",
+        "Q0"
+      ],
+      "target_fraction": 0.104797,
+      "achieved_fraction": 0.104797,
+      "relative_error_pct": 0.0,
+      "pixel_area": 2212510.9,
+      "interior_angles_deg": [
+        56.5,
+        155.0,
+        80.8,
+        67.7
+      ],
+      "max_angle_deg": 155.0
+    },
+    {
+      "name": "Pays de la Loire",
+      "vertices": [
+        "P3",
+        "P5",
+        "P8",
+        "P6",
+        "P4"
+      ],
+      "target_fraction": 0.112538,
+      "achieved_fraction": 0.112538,
+      "relative_error_pct": 0.0,
+      "pixel_area": 2375936.2,
+      "interior_angles_deg": [
+        88.5,
+        71.4,
+        154.9,
+        155.0,
+        70.1
+      ],
+      "max_angle_deg": 155.0
+    },
+    {
+      "name": "Centre-Val de Loire",
+      "vertices": [
+        "P4",
+        "P6",
+        "Q3",
+        "Q2",
+        "Q1",
+        "P2"
+      ],
+      "target_fraction": 0.137335,
+      "achieved_fraction": 0.137335,
+      "relative_error_pct": 0.0,
+      "pixel_area": 2899464.6,
+      "interior_angles_deg": [
+        150.1,
+        124.3,
+        53.9,
+        158.1,
+        123.9,
+        109.8
+      ],
+      "max_angle_deg": 158.1
+    },
+    {
+      "name": "Nouvelle-Aquitaine",
+      "vertices": [
+        "P8",
+        "P5",
+        "BL",
+        "P7"
+      ],
+      "target_fraction": 0.294785,
+      "achieved_fraction": 0.294785,
+      "relative_error_pct": 0.0,
+      "pixel_area": 6223574.3,
+      "interior_angles_deg": [
+        91.5,
+        108.6,
+        90.0,
+        70.0
+      ],
+      "max_angle_deg": 108.6
+    },
+    {
+      "name": "Occitanie",
+      "vertices": [
+        "P8",
+        "P7",
+        "Q4",
+        "Q3",
+        "P6"
+      ],
+      "target_fraction": 0.255103,
+      "achieved_fraction": 0.255103,
+      "relative_error_pct": 0.0,
+      "pixel_area": 5385814.9,
+      "interior_angles_deg": [
+        113.6,
+        110.0,
+        100.7,
+        134.9,
+        80.8
+      ],
+      "max_angle_deg": 134.9
+    }
+  ],
+  "total_objective": 0.0,
+  "optimization_steps_recorded": 2808
+}

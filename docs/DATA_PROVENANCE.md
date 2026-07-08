@@ -9,6 +9,8 @@
 | `pipeline/sources/quartiers.geojson` | Paris Open Data — dataset “quartier_paris” (export 2026-07-08) | Licence Ouverte v2 — attribution: *Ville de Paris* |
 | `pipeline/sources/{major_roads,secondary_roads,parks,rail}.json` | OpenStreetMap via Overpass API (extract 2026-07-08) | [ODbL 1.0](https://www.openstreetmap.org/copyright) — attribution: *© OpenStreetMap contributors* |
 | Landmark/plaza coordinates in scripts | public geographic knowledge, hand-curated | n/a |
+| `extremities/**` (code + artwork) | `fresco_building` project (imported 2026-07-08); original license kept at `extremities/LICENSE` | MIT (copyright 2025) |
+| Region surface figures in `extremities/optimize.py` & README | public French administrative statistics (INSEE) | factual data, no license constraint |
 
 ## Attribution requirements for published work
 

@@ -1,0 +1,217 @@
+{
+  "panel": "right",
+  "canvas": {
+    "width": 6000,
+    "height": 5312
+  },
+  "constraints": {
+    "max_angle_deg": 155.0,
+    "min_angle_deg": 25.0
+  },
+  "fixed_vertices": {
+    "P0": [
+      124,
+      0
+    ],
+    "P0b": [
+      187,
+      458
+    ],
+    "P7": [
+      836,
+      1523
+    ],
+    "P9": [
+      758,
+      2358
+    ],
+    "P11": [
+      1370,
+      3674
+    ],
+    "P4": [
+      1479,
+      5311
+    ]
+  },
+  "optimized_vertices": {
+    "P1": [
+      3456.03,
+      0
+    ],
+    "P10": [
+      3273.62,
+      4062.4
+    ],
+    "P12": [
+      4286.51,
+      5023.5
+    ],
+    "P2": [
+      5999,
+      2732.44
+    ],
+    "P3": [
+      5999,
+      4532.14
+    ],
+    "P5": [
+      4110.17,
+      5311
+    ],
+    "P6": [
+      3137.97,
+      804.12
+    ],
+    "P8": [
+      4138.92,
+      2403.89
+    ]
+  },
+  "implicit_corners": {
+    "TR": [
+      6000,
+      0
+    ],
+    "BR": [
+      6000,
+      5312
+    ]
+  },
+  "regions": [
+    {
+      "name": "Hauts-de-France",
+      "vertices": [
+        "P0",
+        "P0b",
+        "P7",
+        "P6",
+        "P1"
+      ],
+      "target_fraction": 0.129,
+      "achieved_fraction": 0.129,
+      "relative_error_pct": 0.0,
+      "pixel_area": 3463623.8,
+      "interior_angles_deg": [
+        82.2,
+        156.5,
+        104.0,
+        128.9,
+        68.4
+      ],
+      "max_angle_deg": 156.5
+    },
+    {
+      "name": "Grand Est",
+      "vertices": [
+        "P1",
+        "P6",
+        "P8",
+        "P2",
+        "TR"
+      ],
+      "target_fraction": 0.233,
+      "achieved_fraction": 0.233,
+      "relative_error_pct": 0.0,
+      "pixel_area": 6256002.7,
+      "interior_angles_deg": [
+        111.6,
+        126.4,
+        132.1,
+        80.0,
+        90.0
+      ],
+      "max_angle_deg": 132.1
+    },
+    {
+      "name": "Auvergne-Rhône-Alpes",
+      "vertices": [
+        "P6",
+        "P7",
+        "P9",
+        "P11",
+        "P10",
+        "P8"
+      ],
+      "target_fraction": 0.282,
+      "achieved_fraction": 0.282,
+      "relative_error_pct": 0.0,
+      "pixel_area": 7571642.8,
+      "interior_angles_deg": [
+        104.7,
+        112.7,
+        149.7,
+        126.5,
+        106.0,
+        120.4
+      ],
+      "max_angle_deg": 149.7
+    },
+    {
+      "name": "Bourgogne-Franche-Comté",
+      "vertices": [
+        "P8",
+        "P10",
+        "P12",
+        "P3",
+        "P2"
+      ],
+      "target_fraction": 0.194,
+      "achieved_fraction": 0.194,
+      "relative_error_pct": 0.0,
+      "pixel_area": 5208860.6,
+      "interior_angles_deg": [
+        107.5,
+        105.9,
+        120.5,
+        106.0,
+        100.0
+      ],
+      "max_angle_deg": 120.5
+    },
+    {
+      "name": "PACA",
+      "vertices": [
+        "P11",
+        "P4",
+        "P5",
+        "P12",
+        "P10"
+      ],
+      "target_fraction": 0.127,
+      "achieved_fraction": 0.127,
+      "relative_error_pct": 0.0,
+      "pixel_area": 3409924.2,
+      "interior_angles_deg": [
+        74.7,
+        93.8,
+        121.5,
+        102.0,
+        148.0
+      ],
+      "max_angle_deg": 148.0
+    },
+    {
+      "name": "Corse",
+      "vertices": [
+        "P12",
+        "P5",
+        "BR",
+        "P3"
+      ],
+      "target_fraction": 0.035,
+      "achieved_fraction": 0.035,
+      "relative_error_pct": 0.0,
+      "pixel_area": 939742.9,
+      "interior_angles_deg": [
+        137.5,
+        58.5,
+        89.9,
+        74.1
+      ],
+      "max_angle_deg": 137.5
+    }
+  ],
+  "total_objective": 0.0,
+  "optimization_steps_recorded": 2987
+}

@@ -15,3 +15,6 @@ venv/
 pipeline/stage2/work/
 *.npy
 *.npz
+
+# --- source archives already integrated into the tree (kept on disk only) ---
+imports/

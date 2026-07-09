@@ -1,5 +1,7 @@
 # Diem Fresco — Paris Centre
 
+> New AI session? Start with [LLM_START_HERE.md](LLM_START_HERE.md).
+
 Canonical repository for the **Diem fresco**: a 2.88 m × 0.45 m printed artwork
 (34 048 × 5 312 px, 300 dpi) composed of **three panels** — the street network of central
 Paris (1:5000, rotated so the Grand Axis **Étoile → Concorde → Louvre → Bastille → Nation**

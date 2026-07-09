@@ -8,6 +8,8 @@ Paris (1:5000, rotated so the Grand Axis **Étoile → Concorde → Louvre → B
 runs horizontally) flanked by two convex partial-hexagon tilings of the surrounding
 French regions, their areas proportional to real surfaces (left 5 088 px: western
 regions; right 6 000 px: eastern regions; zigzag interfaces hugging the périphérique).
+The two zigzag seams will be sublimated by ornamental branches — laurel (left) and
+oak (right) — echoing the Paris coat of arms (see [docs/PIPELINE.md](docs/PIPELINE.md)).
 
 Pipeline: `master geometry → multi-scale decomposition → AI generation → compositing → print`
 for the center; the extremity panels are finished geometry

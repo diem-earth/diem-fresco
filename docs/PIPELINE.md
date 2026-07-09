@@ -35,11 +35,24 @@ Measured against the master raster: only **0.12%** of map ink lies west of the l
 zigzag (it hugs the périphérique), but **1.03% of map ink (~307 k px — the Porte de
 Vincennes / eastern périphérique area) lies east of the right zigzag**.
 
-> **⚠ Open compositing decision (unresolved by design):** how the right panel and the
-> map's eastern overflow coexist — panel-over-map (streets hidden), map-over-panel
-> (streets drawn across the region tiling), masking the map at the zigzag, or a blend.
-> The left side is effectively conflict-free. Decide at the compositing stage and
-> record the choice here.
+> **✔ Seam strategy (artistic decision, 2026-07-09):** the zigzag seams are not
+> resolved by a technical layering rule — they are treated as **intentional ornamental
+> transitions**. Composition principle:
+>
+> 1. the extremity panels are generated inside their optimized regional hexagon masks
+>    (`extremities/outputs/*/masks/`);
+> 2. the center is generated inside the Paris street-network decomposition
+>    (`decomposition/masks/`);
+> 3. the full fresco is composited from these parts;
+> 4. the two zigzag seams are then covered/sublimated with **ornamental branches** —
+>    **laurel** on the left seam, **oak** on the right seam — directly referencing the
+>    **Paris coat of arms** and turning each seam into a symbolic civic motif.
+>
+> The measured ink overlaps above remain relevant sizing facts: the branches must be
+> wide enough to absorb the transition zone (right side ≈ 307 k px of map ink east of
+> the zigzag). Branch artwork does **not** exist yet; masks and geometry are unchanged.
+> *Open implementation note:* exact branch style, scale, opacity, and generation
+> method remain to be determined.
 
 ## Center pipeline (stages 0–2)
 

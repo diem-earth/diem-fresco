@@ -1,6 +1,6 @@
 # PROJECT_STATE — Diem Fresco
 
-*Snapshot: 2026-07-09 · repo `diem-earth/diem-fresco` · main @ `dd74512` ·
+*Snapshot: 2026-07-09 · repo `diem-earth/diem-fresco` · main @ `7e88820` ·
 tag `v0.1-master-geometry-decomposition` @ `0646dac`*
 
 New session? Read [LLM_START_HERE.md](LLM_START_HERE.md) first.
@@ -56,21 +56,33 @@ imports/   (gitignored) original zip archives already integrated
   Masks (binary + RGBA) in `extremities/outputs/*/masks/`, panel-local coordinates.
 - No artistic treatment of the region polygons exists yet (only geometry + masks).
 
+## Resolved decisions
+
+- **Zigzag seam strategy (artistic, 2026-07-09)** — the center/extremity seams are
+  *intentional ornamental transitions*, not a technical layering rule. Panels are
+  generated inside their own masks, the fresco is composited from the parts, and the
+  two zigzag seams are covered/sublimated with **ornamental branches: laurel (left
+  seam), oak (right seam)** — a direct reference to the **Paris coat of arms**, turning
+  each seam into a symbolic civic motif. Details in `docs/PIPELINE.md`. Branch artwork
+  does not exist yet; masks and geometry unchanged.
+
 ## Open decisions
 
-1. **Right zigzag vs map overlap** — 1.03% of map ink (~307 k px, Porte de Vincennes /
-   eastern périphérique) lies east of the right panel's zigzag. Panel-over-map,
-   map-over-panel, mask-at-zigzag, or blend? Undecided; record the choice in
-   `docs/PIPELINE.md` (left side is conflict-free, 0.12%).
+1. **Seam branches — implementation** (smaller, follows the resolved strategy above):
+   exact branch style, scale, opacity, and generation method TBD. Sizing fact: the
+   right branch must absorb ≈ 307 k px of map ink east of the right zigzag
+   (left side nearly conflict-free, 0.12%).
 2. **Stage-3 design** — prompt schema per L5 tile (metadata exists: quartier name,
    arrondissement, contained L4 landmarks, bounding avenues); generation model/tooling
-   not chosen; seam strategy sketched in PHASE4 (re-composite avenue strokes over joins).
+   not chosen; inner-seam strategy sketched in PHASE4 (re-composite avenue strokes
+   over joins between L5 tiles).
 3. Minor: a few unnamed green spaces (Esplanade des Invalides, Champs-Élysées gardens)
    absent from L4 (OSM name-dependent); 11 "pocket" cells attached to the Seine corridor.
 
 ## Next recommended tasks
 
-1. Decide the right-overlap compositing rule (open decision 1) — cheap, unblocks layout.
+1. Specify the seam branches (open decision 1): style/scale/opacity study for the
+   laurel (left) and oak (right) motifs — no artwork generation until specified.
 2. Stage 3 kick-off: generate the per-L5-tile prompt table from
    `decomposition/meta/regions_L0_L5.json` (id, quartier, arrondissement, L4 contents,
    neighbor list) and validate on 2–3 pilot tiles (e.g. a Marais superblock, the Seine

@@ -51,12 +51,30 @@ imports/   (gitignored) original zip archives already integrated
   L5 superblocks (78 avenue-bounded tiles + seine corridor) → L6 atomic cells (2 560).
   **Recommended generation hierarchy: generate at L5, condition prompts from L2/L3/L4,
   composite at L6** (rationale: `decomposition/reports/PHASE4_ARTISTIC_EVALUATION.md`).
-- **Stage 3 planning EXISTS but is PROVISIONAL and UNCOMMITTED** (2026-07-10):
-  `generation/prompt_tables/` (93 unit records: 78 superblocks + Seine corridor
-  + 12 extremity regions + 2 seam ornaments), builder script, and
-  `docs/STAGE3_GENERATION_PLAN.md` with 3 pilot zones. It still needs the
-  artistic/schema refinement pass (see `docs/DELIVERABLES_ARCHITECTURE.md`,
-  step B) before being committed. **No artistic image generation has started.**
+- **Stage 3 refinement (step B) IN PROGRESS — provisional, UNCOMMITTED**
+  (2026-07-10): `generation/prompt_tables/` (93 unit records: 78 superblocks +
+  Seine corridor + 12 extremity regions + 2 seam ornaments) at schema v0.2,
+  builder + automated curated-persistence test, and
+  `docs/STAGE3_GENERATION_PLAN.md` v1. **No artistic image generation has
+  started.** Refinement state:
+  - invariant technical constraints now separated from provisional artistic
+    hypotheses and open decisions (plan v1) — plan view / flat treatment /
+    palette are explicitly NOT approved constraints;
+  - prompt model is model-independent first: `concept_prompt` (authorable
+    now) vs model-specific `render_prompt`; all artistic data lives in
+    rebuild-surviving `curated` blocks (persistence proven by test);
+  - generation margin configurable (`generation/generation_config.json`
+    default 64 px — working default, not approved — + per-record override);
+  - technical QA boards for the 3 pilots exist
+    (`generation/qa/pilot_selection/` + `pilot_summary.json`); the Seine
+    pilot strip is **approved at x ∈ [13 500, 20 200]** (2026-07-10 — the
+    initial x ≤ 19 500 extent clipped Île Saint-Louis and was superseded);
+  - **legacy regional prompt work exists historically (blue/red series,
+    abstract regional identity, layered tapestry logic) but NO canonical
+    prompt set is integrated in the repo yet** — landing zone scaffolded at
+    `generation/references/extremity_prompt_legacy/` (source location still
+    to be provided; must never be reconstructed from memory);
+  - still open: generation model/tooling, pictorial medium, palette.
 
 ## Extremities pipeline status
 
@@ -116,14 +134,16 @@ A–E in `docs/DELIVERABLES_ARCHITECTURE.md`.
 
 Follow the commit sequence in `docs/DELIVERABLES_ARCHITECTURE.md`:
 
-1. **A** — commit the architecture layer (`production/`, `public_export/`,
-   `process_film/`, `registry/`, docs, this file).
-2. **B/C** — stage-3 artistic/schema refinement pass, then commit the refined
-   `generation/` layer.
-3. **D** — legacy regional-prompt import (⚠ source location unknown — the
-   `fresco_building` archive contains no prompt files).
-4. **E** — pilot generation (`L5_sb034`, Seine-corridor strip,
-   `EXT_L_bretagne`) with film capture from the first accepted tile.
+1. ~~**A** — commit the architecture layer~~ DONE: `f0b14cd`, tag
+   `v0.3-deliverables-architecture`.
+2. **B (in progress) / C** — finish stage-3 refinement review, then commit the
+   refined `generation/` layer + plan.
+3. **D** — legacy regional-prompt import (⚠ source location still unknown —
+   the `fresco_building` archive contains no prompt files; landing zone ready
+   at `generation/references/extremity_prompt_legacy/`).
+4. **E** — pilot generation (`L5_sb034`, Seine-corridor strip
+   x ∈ [13 500, 20 200], and `EXT_L_bretagne`) with film capture from the
+   first accepted tile.
 5. In parallel: resolve physical print dimensions with the fabricator; obtain
    the original pre-rotation Paris source map (and verify its license).
 

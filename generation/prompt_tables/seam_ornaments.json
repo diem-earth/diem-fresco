@@ -1,0 +1,131 @@
+{
+ "provenance": {
+  "schema_version": "0.2",
+  "sources": {
+   "regions_L0_L5.json": "8cc29311b0eb",
+   "cells_L6.json": "11f8817491cd",
+   "left/final_positions.json": "91efd10c8bac",
+   "right/final_positions.json": "6b6d66e62046",
+   "generation_config.json": "900812ee1510"
+  },
+  "default_generation_margin_px": 64,
+  "builder": "generation/scripts/build_prompt_tables.py"
+ },
+ "n_records": 2,
+ "records": [
+  {
+   "id": "seam_left_laurel",
+   "kind": "seam_ornament",
+   "display_name": "Laurel branch — left seam",
+   "motif": "laurel",
+   "symbolism": "Paris coat of arms (laurel + oak wreath)",
+   "panel_side": "left",
+   "geometry": {
+    "zigzag_polyline_px_global": [
+     [
+      4707,
+      0
+     ],
+     [
+      4078,
+      1531
+     ],
+     [
+      4118,
+      2481
+     ],
+     [
+      3741,
+      3547
+     ],
+     [
+      3408,
+      5311
+     ]
+    ],
+    "spans_full_height": true,
+    "ink_overlap": {
+     "pct_of_map_ink": 0.12,
+     "px": null,
+     "meaning": "map ink lying on the extremity side of the zigzag; the branch must be wide enough to absorb it",
+     "source": "docs/PIPELINE.md (measured 2026-07-09)"
+    }
+   },
+   "curated": {
+    "status": "blocked_on_design",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "branch_style": "",
+    "band_width_px": null,
+    "opacity": null,
+    "generation_method": "",
+    "notes": ""
+   }
+  },
+  {
+   "id": "seam_right_oak",
+   "kind": "seam_ornament",
+   "display_name": "Oak branch — right seam",
+   "motif": "oak",
+   "symbolism": "Paris coat of arms (laurel + oak wreath)",
+   "panel_side": "right",
+   "geometry": {
+    "zigzag_polyline_px_global": [
+     [
+      28172,
+      0
+     ],
+     [
+      28235,
+      458
+     ],
+     [
+      28884,
+      1523
+     ],
+     [
+      28806,
+      2358
+     ],
+     [
+      29418,
+      3674
+     ],
+     [
+      29527,
+      5311
+     ]
+    ],
+    "spans_full_height": true,
+    "ink_overlap": {
+     "pct_of_map_ink": 1.03,
+     "px": 307000,
+     "meaning": "map ink lying on the extremity side of the zigzag; the branch must be wide enough to absorb it",
+     "source": "docs/PIPELINE.md (measured 2026-07-09)"
+    }
+   },
+   "curated": {
+    "status": "blocked_on_design",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "branch_style": "",
+    "band_width_px": null,
+    "opacity": null,
+    "generation_method": "",
+    "notes": ""
+   }
+  }
+ ]
+}

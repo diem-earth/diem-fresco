@@ -1,0 +1,13 @@
+id,panel,region,area_fraction,area_px,touches_zigzag_seam,neighbors_same_panel,identity_motifs,effective_margin_px,pilot,status,concept_prompt,render_prompt,notes
+EXT_L_bretagne,left,Bretagne,0.095441,2014981.6,False,Centre-Val de Loire; Normandie; Pays de la Loire,,64,True,pilot,,,
+EXT_L_normandie,left,Normandie,0.104797,2212510.9,True,Bretagne; Centre-Val de Loire,,64,False,todo,,,
+EXT_L_pays_de_la_loire,left,Pays de la Loire,0.112538,2375936.2,False,Bretagne; Centre-Val de Loire; Nouvelle-Aquitaine; Occitanie,,64,False,todo,,,
+EXT_L_centre_val_de_loire,left,Centre-Val de Loire,0.137335,2899464.6,True,Bretagne; Normandie; Occitanie; Pays de la Loire,,64,False,todo,,,
+EXT_L_nouvelle_aquitaine,left,Nouvelle-Aquitaine,0.294785,6223574.3,False,Occitanie; Pays de la Loire,,64,False,todo,,,
+EXT_L_occitanie,left,Occitanie,0.255103,5385814.9,True,Centre-Val de Loire; Nouvelle-Aquitaine; Pays de la Loire,,64,False,todo,,,
+EXT_R_hauts_de_france,right,Hauts-de-France,0.129,3463623.8,True,Auvergne-Rhône-Alpes; Grand Est,,64,False,todo,,,
+EXT_R_grand_est,right,Grand Est,0.233,6256002.7,False,Auvergne-Rhône-Alpes; Bourgogne-Franche-Comté; Hauts-de-France,,64,False,todo,,,
+EXT_R_auvergne_rhone_alpes,right,Auvergne-Rhône-Alpes,0.282,7571642.8,True,Bourgogne-Franche-Comté; Grand Est; Hauts-de-France; PACA,,64,False,todo,,,
+EXT_R_bourgogne_franche_comte,right,Bourgogne-Franche-Comté,0.194,5208860.6,False,Auvergne-Rhône-Alpes; Corse; Grand Est; PACA,,64,False,todo,,,
+EXT_R_paca,right,PACA,0.127,3409924.2,True,Auvergne-Rhône-Alpes; Bourgogne-Franche-Comté; Corse,,64,False,todo,,,
+EXT_R_corse,right,Corse,0.035,939742.9,False,Bourgogne-Franche-Comté; PACA,,64,False,todo,,,

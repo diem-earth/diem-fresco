@@ -1,0 +1,169 @@
+{
+ "generated_by": "generation/scripts/build_pilot_qa_boards.py",
+ "coordinate_system": "global fresco pixels, origin top-left, canvas 34048x5312",
+ "default_generation_margin_px": 64,
+ "pilots": [
+  {
+   "pilot_id": "pilot_center_dense",
+   "unit_ids": [
+    "L5_sb034"
+   ],
+   "kind": "superblock",
+   "board": "generation/qa/pilot_selection/board_L5_sb034.png",
+   "mask_paths": [
+    "decomposition/masks/L5_superblocks/L5_sb034.png"
+   ],
+   "mask_space": "global",
+   "bbox_px_global": [
+    17245,
+    68,
+    18666,
+    1071
+   ],
+   "gen_window_px_global": [
+    17181,
+    4,
+    18730,
+    1135
+   ],
+   "effective_margin_px": 64,
+   "crop_size_px": [
+    1550,
+    1132
+   ],
+   "neighbors": [
+    "L5_sb069",
+    "L5_sb072",
+    "L5_sb068",
+    "L5_sb002",
+    "L5_sb025",
+    "L5_sb071"
+   ],
+   "metadata": {
+    "quartier": "Arts-et-Métiers",
+    "arrondissement": "3e — Temple",
+    "area_ha": 15.78,
+    "purity": 1.0
+   },
+   "findings": "window 1550x1132 px, clean single-quartier unit; no issues"
+  },
+  {
+   "pilot_id": "pilot_seine_strip",
+   "unit_ids": [
+    "L5_seine_corridor"
+   ],
+   "kind": "seine_corridor_strip",
+   "board": "generation/qa/pilot_selection/board_seine_strip.png",
+   "mask_paths": [
+    "decomposition/masks/L5_superblocks/L5_seine_corridor.png",
+    "decomposition/masks/L4_semantic/L4_island_ile_de_la_cite.png",
+    "decomposition/masks/L4_semantic/L4_island_ile_saint_louis.png",
+    "decomposition/masks/L4_semantic/L4_bridges.png"
+   ],
+   "mask_space": "global",
+   "strip_x_approved": [
+    13500,
+    20200
+   ],
+   "strip_status": "approved 2026-07-10 — canonical Stage 3 pilot strip",
+   "strip_x_former_superseded": [
+    13500,
+    19500
+   ],
+   "strip_history": "former end x=19500 clipped Ile Saint-Louis (footprint to x=20013); extended to x=20200 on approval",
+   "gen_window_px_global": [
+    13436,
+    3140,
+    20264,
+    5311
+   ],
+   "gen_window_px_global_former": [
+    13436,
+    3140,
+    19564,
+    5311
+   ],
+   "effective_margin_px": 64,
+   "crop_size_px": [
+    6829,
+    2172
+   ],
+   "neighbors": [
+    "L5_sb002",
+    "L5_sb051",
+    "L5_sb050",
+    "L5_sb049",
+    "L5_sb045",
+    "L5_sb026",
+    "L5_sb014",
+    "L5_sb070",
+    "L5_sb065",
+    "L5_sb059",
+    "L5_sb048",
+    "L5_sb009",
+    "L5_sb074",
+    "L5_sb021",
+    "L5_sb046",
+    "L5_sb047",
+    "L5_sb038",
+    "L5_sb056",
+    "L5_sb011",
+    "L5_sb025",
+    "L5_sb060",
+    "L5_sb058",
+    "L5_sb010",
+    "L5_sb076",
+    "L5_sb052",
+    "L5_sb075",
+    "L5_sb040",
+    "L5_sb008",
+    "L5_sb079",
+    "L5_sb007",
+    "L5_sb023",
+    "L5_sb039",
+    "L5_sb067"
+   ],
+   "findings": "approved extent contains both islands fully; no open issues"
+  },
+  {
+   "pilot_id": "pilot_extremity",
+   "unit_ids": [
+    "EXT_L_bretagne"
+   ],
+   "kind": "extremity_region",
+   "board": "generation/qa/pilot_selection/board_EXT_L_bretagne.png",
+   "mask_paths": [
+    "extremities/outputs/left/masks/mask_1_bretagne.png"
+   ],
+   "mask_space": "panel_local (offset_x=0)",
+   "bbox_px_global": [
+    0,
+    0,
+    2578,
+    872
+   ],
+   "gen_window_px_global": [
+    0,
+    0,
+    2642,
+    936
+   ],
+   "effective_margin_px": 64,
+   "crop_size_px": [
+    2643,
+    937
+   ],
+   "neighbors": [
+    "Centre-Val de Loire",
+    "Normandie",
+    "Pays de la Loire"
+   ],
+   "metadata": {
+    "panel": "left",
+    "area_fraction": 0.095441,
+    "touches_zigzag_seam": false
+   },
+   "findings": "window 2643x937 px — wide/shallow aspect (2.8:1); workable but note some models prefer squarer canvases; unit does not touch the seam (decoupled from branch design)"
+  }
+ ]
+}

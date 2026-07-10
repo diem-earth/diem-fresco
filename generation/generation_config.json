@@ -1,0 +1,7 @@
+{
+ "config_version": "0.1",
+ "default_generation_margin_px": 64,
+ "margin_note": "Initial working default only — NOT approved and not universally suitable. The appropriate margin depends on the generation model, its working resolution, the conditioning method and the continuity/feathering strategy (all open decisions). Override per record via curated.generation_margin_override_px; generation windows are DERIVED, so rebuild the tables after changing any override.",
+ "canvas": {"width_px": 34048, "height_px": 5312},
+ "right_panel_offset_x": 28048
+}

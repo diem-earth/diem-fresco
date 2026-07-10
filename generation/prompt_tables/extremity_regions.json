@@ -1,0 +1,1365 @@
+{
+ "provenance": {
+  "schema_version": "0.2",
+  "sources": {
+   "regions_L0_L5.json": "8cc29311b0eb",
+   "cells_L6.json": "11f8817491cd",
+   "left/final_positions.json": "91efd10c8bac",
+   "right/final_positions.json": "6b6d66e62046",
+   "generation_config.json": "900812ee1510"
+  },
+  "default_generation_margin_px": 64,
+  "builder": "generation/scripts/build_prompt_tables.py"
+ },
+ "n_records": 12,
+ "records": [
+  {
+   "id": "EXT_L_bretagne",
+   "kind": "extremity_region",
+   "display_name": "Bretagne",
+   "panel": "left",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      812.9
+     ],
+     [
+      2252.4,
+      872.0
+     ],
+     [
+      2577.6,
+      611.5
+     ],
+     [
+      2173.0,
+      0.0
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      812.9
+     ],
+     [
+      2252.4,
+      872.0
+     ],
+     [
+      2577.6,
+      611.5
+     ],
+     [
+      2173.0,
+      0.0
+     ]
+    ],
+    "bbox_px_global": [
+     0.0,
+     0.0,
+     2577.6,
+     872.0
+    ],
+    "area_px": 2014981.6,
+    "area_fraction_target": 0.095441,
+    "area_fraction_achieved": 0.095441,
+    "max_interior_angle_deg": 139.8,
+    "panel_offset_x": 0,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     0,
+     0,
+     2642,
+     936
+    ],
+    "gen_window_size_px": [
+     2643,
+     937
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/left/masks/mask_1_bretagne.png",
+    "mask_rgba_path": "extremities/outputs/left/masks/mask_1_bretagne_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_left",
+    "neighbors_same_panel": [
+     "Centre-Val de Loire",
+     "Normandie",
+     "Pays de la Loire"
+    ],
+    "touches_zigzag_seam": false,
+    "seam_ornament": null
+   },
+   "prompt_scaffold": "Unit facts: Bretagne — convex polygonal facet of the left panel, 9.5% of panel area; borders Centre-Val de Loire, Normandie, Pays de la Loire. Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "pilot",
+    "pilot": true,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_L_normandie",
+   "kind": "extremity_region",
+   "display_name": "Normandie",
+   "panel": "left",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      2173.0,
+      0.0
+     ],
+     [
+      2577.6,
+      611.5
+     ],
+     [
+      4078.0,
+      1531.0
+     ],
+     [
+      4707.0,
+      0.0
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      2173.0,
+      0.0
+     ],
+     [
+      2577.6,
+      611.5
+     ],
+     [
+      4078.0,
+      1531.0
+     ],
+     [
+      4707.0,
+      0.0
+     ]
+    ],
+    "bbox_px_global": [
+     2173.0,
+     0.0,
+     4707.0,
+     1531.0
+    ],
+    "area_px": 2212510.9,
+    "area_fraction_target": 0.104797,
+    "area_fraction_achieved": 0.104797,
+    "max_interior_angle_deg": 155.0,
+    "panel_offset_x": 0,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     2109,
+     0,
+     4771,
+     1595
+    ],
+    "gen_window_size_px": [
+     2663,
+     1596
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/left/masks/mask_2_normandie.png",
+    "mask_rgba_path": "extremities/outputs/left/masks/mask_2_normandie_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_left",
+    "neighbors_same_panel": [
+     "Bretagne",
+     "Centre-Val de Loire"
+    ],
+    "touches_zigzag_seam": true,
+    "seam_ornament": "seam_left_laurel"
+   },
+   "prompt_scaffold": "Unit facts: Normandie — convex polygonal facet of the left panel, 10.5% of panel area; borders Bretagne, Centre-Val de Loire; touches the zigzag seam (ornament band reserved). Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_L_pays_de_la_loire",
+   "kind": "extremity_region",
+   "display_name": "Pays de la Loire",
+   "panel": "left",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      0.0,
+      812.9
+     ],
+     [
+      0.0,
+      2398.0
+     ],
+     [
+      1328.8,
+      1951.6
+     ],
+     [
+      2128.1,
+      1189.8
+     ],
+     [
+      2252.4,
+      872.0
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      0.0,
+      812.9
+     ],
+     [
+      0.0,
+      2398.0
+     ],
+     [
+      1328.8,
+      1951.6
+     ],
+     [
+      2128.1,
+      1189.8
+     ],
+     [
+      2252.4,
+      872.0
+     ]
+    ],
+    "bbox_px_global": [
+     0.0,
+     812.9,
+     2252.4,
+     2398.0
+    ],
+    "area_px": 2375936.2,
+    "area_fraction_target": 0.112538,
+    "area_fraction_achieved": 0.112538,
+    "max_interior_angle_deg": 155.0,
+    "panel_offset_x": 0,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     0,
+     749,
+     2316,
+     2462
+    ],
+    "gen_window_size_px": [
+     2317,
+     1714
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/left/masks/mask_3_pays_de_la_loire.png",
+    "mask_rgba_path": "extremities/outputs/left/masks/mask_3_pays_de_la_loire_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_left",
+    "neighbors_same_panel": [
+     "Bretagne",
+     "Centre-Val de Loire",
+     "Nouvelle-Aquitaine",
+     "Occitanie"
+    ],
+    "touches_zigzag_seam": false,
+    "seam_ornament": null
+   },
+   "prompt_scaffold": "Unit facts: Pays de la Loire — convex polygonal facet of the left panel, 11.3% of panel area; borders Bretagne, Centre-Val de Loire, Nouvelle-Aquitaine, Occitanie. Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_L_centre_val_de_loire",
+   "kind": "extremity_region",
+   "display_name": "Centre-Val de Loire",
+   "panel": "left",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      2252.4,
+      872.0
+     ],
+     [
+      2128.1,
+      1189.8
+     ],
+     [
+      3741.0,
+      3547.0
+     ],
+     [
+      4118.0,
+      2481.0
+     ],
+     [
+      4078.0,
+      1531.0
+     ],
+     [
+      2577.6,
+      611.5
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      2252.4,
+      872.0
+     ],
+     [
+      2128.1,
+      1189.8
+     ],
+     [
+      3741.0,
+      3547.0
+     ],
+     [
+      4118.0,
+      2481.0
+     ],
+     [
+      4078.0,
+      1531.0
+     ],
+     [
+      2577.6,
+      611.5
+     ]
+    ],
+    "bbox_px_global": [
+     2128.1,
+     611.5,
+     4118.0,
+     3547.0
+    ],
+    "area_px": 2899464.6,
+    "area_fraction_target": 0.137335,
+    "area_fraction_achieved": 0.137335,
+    "max_interior_angle_deg": 158.1,
+    "panel_offset_x": 0,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     2064,
+     548,
+     4182,
+     3611
+    ],
+    "gen_window_size_px": [
+     2119,
+     3064
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/left/masks/mask_4_centre_val_de_loire.png",
+    "mask_rgba_path": "extremities/outputs/left/masks/mask_4_centre_val_de_loire_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_left",
+    "neighbors_same_panel": [
+     "Bretagne",
+     "Normandie",
+     "Occitanie",
+     "Pays de la Loire"
+    ],
+    "touches_zigzag_seam": true,
+    "seam_ornament": "seam_left_laurel"
+   },
+   "prompt_scaffold": "Unit facts: Centre-Val de Loire — convex polygonal facet of the left panel, 13.7% of panel area; borders Bretagne, Normandie, Occitanie, Pays de la Loire; touches the zigzag seam (ornament band reserved). Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_L_nouvelle_aquitaine",
+   "kind": "extremity_region",
+   "display_name": "Nouvelle-Aquitaine",
+   "panel": "left",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      1328.8,
+      1951.6
+     ],
+     [
+      0.0,
+      2398.0
+     ],
+     [
+      0.0,
+      5311.0
+     ],
+     [
+      2552.9,
+      5311.0
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      1328.8,
+      1951.6
+     ],
+     [
+      0.0,
+      2398.0
+     ],
+     [
+      0.0,
+      5311.0
+     ],
+     [
+      2552.9,
+      5311.0
+     ]
+    ],
+    "bbox_px_global": [
+     0.0,
+     1951.6,
+     2552.9,
+     5311.0
+    ],
+    "area_px": 6223574.3,
+    "area_fraction_target": 0.294785,
+    "area_fraction_achieved": 0.294785,
+    "max_interior_angle_deg": 108.6,
+    "panel_offset_x": 0,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     0,
+     1888,
+     2617,
+     5311
+    ],
+    "gen_window_size_px": [
+     2618,
+     3424
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/left/masks/mask_5_nouvelle_aquitaine.png",
+    "mask_rgba_path": "extremities/outputs/left/masks/mask_5_nouvelle_aquitaine_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_left",
+    "neighbors_same_panel": [
+     "Occitanie",
+     "Pays de la Loire"
+    ],
+    "touches_zigzag_seam": false,
+    "seam_ornament": null
+   },
+   "prompt_scaffold": "Unit facts: Nouvelle-Aquitaine — convex polygonal facet of the left panel, 29.5% of panel area; borders Occitanie, Pays de la Loire. Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_L_occitanie",
+   "kind": "extremity_region",
+   "display_name": "Occitanie",
+   "panel": "left",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      1328.8,
+      1951.6
+     ],
+     [
+      2552.9,
+      5311.0
+     ],
+     [
+      3408.0,
+      5311.0
+     ],
+     [
+      3741.0,
+      3547.0
+     ],
+     [
+      2128.1,
+      1189.8
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      1328.8,
+      1951.6
+     ],
+     [
+      2552.9,
+      5311.0
+     ],
+     [
+      3408.0,
+      5311.0
+     ],
+     [
+      3741.0,
+      3547.0
+     ],
+     [
+      2128.1,
+      1189.8
+     ]
+    ],
+    "bbox_px_global": [
+     1328.8,
+     1189.8,
+     3741.0,
+     5311.0
+    ],
+    "area_px": 5385814.9,
+    "area_fraction_target": 0.255103,
+    "area_fraction_achieved": 0.255103,
+    "max_interior_angle_deg": 134.9,
+    "panel_offset_x": 0,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     1265,
+     1126,
+     3805,
+     5311
+    ],
+    "gen_window_size_px": [
+     2541,
+     4186
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/left/masks/mask_6_occitanie.png",
+    "mask_rgba_path": "extremities/outputs/left/masks/mask_6_occitanie_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_left",
+    "neighbors_same_panel": [
+     "Centre-Val de Loire",
+     "Nouvelle-Aquitaine",
+     "Pays de la Loire"
+    ],
+    "touches_zigzag_seam": true,
+    "seam_ornament": "seam_left_laurel"
+   },
+   "prompt_scaffold": "Unit facts: Occitanie — convex polygonal facet of the left panel, 25.5% of panel area; borders Centre-Val de Loire, Nouvelle-Aquitaine, Pays de la Loire; touches the zigzag seam (ornament band reserved). Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_R_hauts_de_france",
+   "kind": "extremity_region",
+   "display_name": "Hauts-de-France",
+   "panel": "right",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      124.0,
+      0.0
+     ],
+     [
+      187.0,
+      458.0
+     ],
+     [
+      836.0,
+      1523.0
+     ],
+     [
+      3138.0,
+      804.1
+     ],
+     [
+      3456.0,
+      0.0
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      28172.0,
+      0.0
+     ],
+     [
+      28235.0,
+      458.0
+     ],
+     [
+      28884.0,
+      1523.0
+     ],
+     [
+      31186.0,
+      804.1
+     ],
+     [
+      31504.0,
+      0.0
+     ]
+    ],
+    "bbox_px_global": [
+     28172.0,
+     0.0,
+     31504.0,
+     1523.0
+    ],
+    "area_px": 3463623.8,
+    "area_fraction_target": 0.129,
+    "area_fraction_achieved": 0.129,
+    "max_interior_angle_deg": 156.5,
+    "panel_offset_x": 28048,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     28108,
+     0,
+     31568,
+     1587
+    ],
+    "gen_window_size_px": [
+     3461,
+     1588
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/right/masks/mask_1_hauts_de_france.png",
+    "mask_rgba_path": "extremities/outputs/right/masks/mask_1_hauts_de_france_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_right",
+    "neighbors_same_panel": [
+     "Auvergne-Rhône-Alpes",
+     "Grand Est"
+    ],
+    "touches_zigzag_seam": true,
+    "seam_ornament": "seam_right_oak"
+   },
+   "prompt_scaffold": "Unit facts: Hauts-de-France — convex polygonal facet of the right panel, 12.9% of panel area; borders Auvergne-Rhône-Alpes, Grand Est; touches the zigzag seam (ornament band reserved). Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_R_grand_est",
+   "kind": "extremity_region",
+   "display_name": "Grand Est",
+   "panel": "right",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      3456.0,
+      0.0
+     ],
+     [
+      3138.0,
+      804.1
+     ],
+     [
+      4138.9,
+      2403.9
+     ],
+     [
+      5999.0,
+      2732.4
+     ],
+     [
+      6000.0,
+      0.0
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      31504.0,
+      0.0
+     ],
+     [
+      31186.0,
+      804.1
+     ],
+     [
+      32186.9,
+      2403.9
+     ],
+     [
+      34047.0,
+      2732.4
+     ],
+     [
+      34048.0,
+      0.0
+     ]
+    ],
+    "bbox_px_global": [
+     31186.0,
+     0.0,
+     34048.0,
+     2732.4
+    ],
+    "area_px": 6256002.7,
+    "area_fraction_target": 0.233,
+    "area_fraction_achieved": 0.233,
+    "max_interior_angle_deg": 132.1,
+    "panel_offset_x": 28048,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     31122,
+     0,
+     34047,
+     2796
+    ],
+    "gen_window_size_px": [
+     2926,
+     2797
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/right/masks/mask_2_grand_est.png",
+    "mask_rgba_path": "extremities/outputs/right/masks/mask_2_grand_est_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_right",
+    "neighbors_same_panel": [
+     "Auvergne-Rhône-Alpes",
+     "Bourgogne-Franche-Comté",
+     "Hauts-de-France"
+    ],
+    "touches_zigzag_seam": false,
+    "seam_ornament": null
+   },
+   "prompt_scaffold": "Unit facts: Grand Est — convex polygonal facet of the right panel, 23.3% of panel area; borders Auvergne-Rhône-Alpes, Bourgogne-Franche-Comté, Hauts-de-France. Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_R_auvergne_rhone_alpes",
+   "kind": "extremity_region",
+   "display_name": "Auvergne-Rhône-Alpes",
+   "panel": "right",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      3138.0,
+      804.1
+     ],
+     [
+      836.0,
+      1523.0
+     ],
+     [
+      758.0,
+      2358.0
+     ],
+     [
+      1370.0,
+      3674.0
+     ],
+     [
+      3273.6,
+      4062.4
+     ],
+     [
+      4138.9,
+      2403.9
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      31186.0,
+      804.1
+     ],
+     [
+      28884.0,
+      1523.0
+     ],
+     [
+      28806.0,
+      2358.0
+     ],
+     [
+      29418.0,
+      3674.0
+     ],
+     [
+      31321.6,
+      4062.4
+     ],
+     [
+      32186.9,
+      2403.9
+     ]
+    ],
+    "bbox_px_global": [
+     28806.0,
+     804.1,
+     32186.9,
+     4062.4
+    ],
+    "area_px": 7571642.8,
+    "area_fraction_target": 0.282,
+    "area_fraction_achieved": 0.282,
+    "max_interior_angle_deg": 149.7,
+    "panel_offset_x": 28048,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     28742,
+     740,
+     32251,
+     4126
+    ],
+    "gen_window_size_px": [
+     3510,
+     3387
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/right/masks/mask_3_auvergne_rhone_alpes.png",
+    "mask_rgba_path": "extremities/outputs/right/masks/mask_3_auvergne_rhone_alpes_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_right",
+    "neighbors_same_panel": [
+     "Bourgogne-Franche-Comté",
+     "Grand Est",
+     "Hauts-de-France",
+     "PACA"
+    ],
+    "touches_zigzag_seam": true,
+    "seam_ornament": "seam_right_oak"
+   },
+   "prompt_scaffold": "Unit facts: Auvergne-Rhône-Alpes — convex polygonal facet of the right panel, 28.2% of panel area; borders Bourgogne-Franche-Comté, Grand Est, Hauts-de-France, PACA; touches the zigzag seam (ornament band reserved). Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_R_bourgogne_franche_comte",
+   "kind": "extremity_region",
+   "display_name": "Bourgogne-Franche-Comté",
+   "panel": "right",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      4138.9,
+      2403.9
+     ],
+     [
+      3273.6,
+      4062.4
+     ],
+     [
+      4286.5,
+      5023.5
+     ],
+     [
+      5999.0,
+      4532.1
+     ],
+     [
+      5999.0,
+      2732.4
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      32186.9,
+      2403.9
+     ],
+     [
+      31321.6,
+      4062.4
+     ],
+     [
+      32334.5,
+      5023.5
+     ],
+     [
+      34047.0,
+      4532.1
+     ],
+     [
+      34047.0,
+      2732.4
+     ]
+    ],
+    "bbox_px_global": [
+     31321.6,
+     2403.9,
+     34047.0,
+     5023.5
+    ],
+    "area_px": 5208860.6,
+    "area_fraction_target": 0.194,
+    "area_fraction_achieved": 0.194,
+    "max_interior_angle_deg": 120.5,
+    "panel_offset_x": 28048,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     31258,
+     2340,
+     34047,
+     5088
+    ],
+    "gen_window_size_px": [
+     2790,
+     2749
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/right/masks/mask_4_bourgogne_franche_comte.png",
+    "mask_rgba_path": "extremities/outputs/right/masks/mask_4_bourgogne_franche_comte_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_right",
+    "neighbors_same_panel": [
+     "Auvergne-Rhône-Alpes",
+     "Corse",
+     "Grand Est",
+     "PACA"
+    ],
+    "touches_zigzag_seam": false,
+    "seam_ornament": null
+   },
+   "prompt_scaffold": "Unit facts: Bourgogne-Franche-Comté — convex polygonal facet of the right panel, 19.4% of panel area; borders Auvergne-Rhône-Alpes, Corse, Grand Est, PACA. Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_R_paca",
+   "kind": "extremity_region",
+   "display_name": "PACA",
+   "panel": "right",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      1370.0,
+      3674.0
+     ],
+     [
+      1479.0,
+      5311.0
+     ],
+     [
+      4110.2,
+      5311.0
+     ],
+     [
+      4286.5,
+      5023.5
+     ],
+     [
+      3273.6,
+      4062.4
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      29418.0,
+      3674.0
+     ],
+     [
+      29527.0,
+      5311.0
+     ],
+     [
+      32158.2,
+      5311.0
+     ],
+     [
+      32334.5,
+      5023.5
+     ],
+     [
+      31321.6,
+      4062.4
+     ]
+    ],
+    "bbox_px_global": [
+     29418.0,
+     3674.0,
+     32334.5,
+     5311.0
+    ],
+    "area_px": 3409924.2,
+    "area_fraction_target": 0.127,
+    "area_fraction_achieved": 0.127,
+    "max_interior_angle_deg": 148.0,
+    "panel_offset_x": 28048,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     29354,
+     3610,
+     32398,
+     5311
+    ],
+    "gen_window_size_px": [
+     3045,
+     1702
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/right/masks/mask_5_paca.png",
+    "mask_rgba_path": "extremities/outputs/right/masks/mask_5_paca_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_right",
+    "neighbors_same_panel": [
+     "Auvergne-Rhône-Alpes",
+     "Bourgogne-Franche-Comté",
+     "Corse"
+    ],
+    "touches_zigzag_seam": true,
+    "seam_ornament": "seam_right_oak"
+   },
+   "prompt_scaffold": "Unit facts: PACA — convex polygonal facet of the right panel, 12.7% of panel area; borders Auvergne-Rhône-Alpes, Bourgogne-Franche-Comté, Corse; touches the zigzag seam (ornament band reserved). Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  },
+  {
+   "id": "EXT_R_corse",
+   "kind": "extremity_region",
+   "display_name": "Corse",
+   "panel": "right",
+   "geometry": {
+    "polygon_px_local": [
+     [
+      4286.5,
+      5023.5
+     ],
+     [
+      4110.2,
+      5311.0
+     ],
+     [
+      6000.0,
+      5312.0
+     ],
+     [
+      5999.0,
+      4532.1
+     ]
+    ],
+    "polygon_px_global": [
+     [
+      32334.5,
+      5023.5
+     ],
+     [
+      32158.2,
+      5311.0
+     ],
+     [
+      34048.0,
+      5312.0
+     ],
+     [
+      34047.0,
+      4532.1
+     ]
+    ],
+    "bbox_px_global": [
+     32158.2,
+     4532.1,
+     34048.0,
+     5312.0
+    ],
+    "area_px": 939742.9,
+    "area_fraction_target": 0.035,
+    "area_fraction_achieved": 0.035,
+    "max_interior_angle_deg": 137.5,
+    "panel_offset_x": 28048,
+    "effective_margin_px": 64,
+    "margin_source": "default",
+    "gen_window_px_global": [
+     32094,
+     4468,
+     34047,
+     5311
+    ],
+    "gen_window_size_px": [
+     1954,
+     844
+    ]
+   },
+   "assets": {
+    "mask_path": "extremities/outputs/right/masks/mask_6_corse.png",
+    "mask_rgba_path": "extremities/outputs/right/masks/mask_6_corse_transparent.png",
+    "mask_coordinate_space": "panel_local",
+    "mask_polarity": "region_black_on_white"
+   },
+   "context": {
+    "palette_world": "panel_right",
+    "neighbors_same_panel": [
+     "Bourgogne-Franche-Comté",
+     "PACA"
+    ],
+    "touches_zigzag_seam": false,
+    "seam_ornament": null
+   },
+   "prompt_scaffold": "Unit facts: Corse — convex polygonal facet of the right panel, 3.5% of panel area; borders Bourgogne-Franche-Comté, PACA. Generated content fills only this region's mask. Identity, motifs and treatment are authored in curated fields (legacy prompt import pending — see generation/references/extremity_prompt_legacy/).",
+   "curated": {
+    "status": "todo",
+    "pilot": false,
+    "style_pack": "style_pack_v0",
+    "concept_prompt": "",
+    "render_prompt": "",
+    "negative_prompt": "",
+    "model_config_ref": "",
+    "conditioning_assets": [],
+    "generation_notes": "",
+    "identity_motifs": [],
+    "secondary_motifs": [],
+    "materials": "",
+    "atmosphere": "",
+    "color_direction": "",
+    "density": "",
+    "composition_notes": "",
+    "continuity_notes": "",
+    "generation_margin_override_px": null,
+    "notes": ""
+   }
+  }
+ ]
+}

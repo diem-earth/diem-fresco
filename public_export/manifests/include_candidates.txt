@@ -1,0 +1,57 @@
+# INCLUDE CANDIDATES — PROVISIONAL, NOTHING HERE IS APPROVED FOR PUBLICATION.
+# Every entry is a *candidate* pending rights, privacy, portability and
+# artistic-IP review (see the review gates in ../README.md). The boundary
+# model is approved in principle; the exact inclusion list is not.
+#
+# Mechanics: allowlist — only paths matching these globs are candidates for
+# export. exclude.txt is applied afterwards and ALWAYS WINS. Anything matching
+# neither file is private by default.
+# Lines starting with '#' are comments. Globs are repo-root-relative.
+# '@transform:' marks files that must be rewritten/downsampled at export time,
+# never copied verbatim.  '@review:' marks entries with a specific open gate.
+
+# --- method documentation ---
+MASTER_GEOMETRY_REPORT.md                 @review: internal report — assess rewrite before publication
+docs/PIPELINE.md                          @transform: strip internal commentary  @review: rewrite assessment
+docs/REPRODUCIBILITY.md                   @review: rewrite assessment
+docs/DATA_PROVENANCE.md                   @review: rewrite assessment (it is the attribution source)
+decomposition/reports/PHASE1_UNDERSTANDING.md   @review: internal report — rewrite assessment
+decomposition/reports/PHASE2_TOPOLOGY.md        @review: internal report — rewrite assessment
+decomposition/reports/PHASE3_DECOMPOSITION.md   @review: internal report — rewrite assessment
+decomposition/reports/PHASE4_ARTISTIC_EVALUATION.md  @review: internal report — rewrite assessment
+
+# --- pipeline code ---
+qa/reproduce_master.py
+qa/removal_manifest.csv
+pipeline/README.md
+pipeline/stage2/*.py
+extremities/optimize.py                   @review: MIT per extremities/LICENSE (recorded) — confirm scope
+extremities/requirements.txt
+generation/scripts/build_prompt_tables.py
+
+# --- data needed to run the method ---
+decomposition/meta/*.json                 @review: geometry derives from the upstream Paris map —
+#                                                  publishability is tied to the source-map rights gate
+pipeline/sources/arrondissements.geojson  @transform: add Licence Ouverte v2 attribution (Ville de Paris)
+pipeline/sources/quartiers.geojson        @transform: add Licence Ouverte v2 attribution (Ville de Paris)
+pipeline/sources/major_roads.json         @transform: add ODbL attribution (© OpenStreetMap contributors)
+pipeline/sources/secondary_roads.json     @transform: add ODbL attribution
+pipeline/sources/parks.json               @transform: add ODbL attribution
+pipeline/sources/rail.json                @transform: add ODbL attribution
+extremities/outputs/left/final_positions.json
+extremities/outputs/right/final_positions.json
+
+# --- schemas (shape of the data, no curated content) ---
+generation/prompt_tables/SCHEMA.md
+process_film/manifest/SCHEMA.md
+production/specs/fresco.yaml              @transform: only if approved; strip private notes
+
+# --- selected visual assets ---
+extremities/outputs/left/simple_convergence.gif
+extremities/outputs/left/annotated_convergence.gif
+extremities/outputs/right/simple_convergence.gif
+extremities/outputs/right/annotated_convergence.gif
+decomposition/viz/L*_map.png              @review: derived from the upstream map — source-map rights gate
+decomposition/viz/hierarchy_diagram.svg
+diem_master_geometry_v1.png               @transform: downsample (public resolution TBD)  @review: source-map rights gate
+# final fresco preview + process film outputs: added when they exist (resolution TBD; artwork-IP gate)

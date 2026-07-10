@@ -1,7 +1,8 @@
 # LLM START HERE — Diem Fresco
 
-You are in the canonical repo of the **Diem fresco**: a 2.88 m × 0.45 m printed artwork,
-one canvas of **34 048 × 5 312 px @ 300 dpi**, composed of three panels:
+You are in the canonical repo of the **Diem fresco**: a monumental printed artwork
+(physical dimensions TBD), one canvas of **34 048 × 5 312 px** (file metadata
+300 dpi — a working assumption, not the print resolution), composed of three panels:
 
 ```
 x: 0        5088                        28048        34048

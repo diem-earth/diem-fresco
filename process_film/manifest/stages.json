@@ -1,0 +1,207 @@
+{
+ "schema_version": "0.2",
+ "canvas": {
+  "width_px": 34048,
+  "height_px": 5312,
+  "preview_downsample": "1/8 -> 4256x664 (proposed, TBD)"
+ },
+ "formats": [
+  "gif_simple",
+  "gif_annotated",
+  "mp4_exhibition"
+ ],
+ "stages": [
+  {
+   "id": "s00_blank_canvas",
+   "order": 0,
+   "title": "A blank canvas — 34 048 × 5 312 pixels",
+   "status": "reconstructable",
+   "source_artifacts": [],
+   "generator": null,
+   "git_ref": null,
+   "preview": "previews/s00_blank_canvas.png",
+   "duration_s": 1.5,
+   "transition": "cut",
+   "notes": "Trivial: white 34048x5312 frame at the canonical downsample.",
+   "chronology_note": "Framing device — no historical counterpart."
+  },
+  {
+   "id": "s01_source_map",
+   "order": 1,
+   "title": "The official Paris 1:5000 plan",
+   "status": "blocked_missing_source",
+   "source_artifacts": [],
+   "generator": null,
+   "git_ref": null,
+   "preview": "previews/s01_source_map.png",
+   "duration_s": 3.0,
+   "transition": "crossfade",
+   "notes": "The original pre-rotation map is NOT in the repo (upstream input, author Mathis Koroglu). Obtain it before this stage can be rendered. Do not fabricate.",
+   "chronology_note": "History: the upstream map work predates this repo (canny extraction authored 2025-11-19, per docs/DATA_PROVENANCE.md)."
+  },
+  {
+   "id": "s02_rotation",
+   "order": 2,
+   "title": "Positioning — the Grand Axis turned horizontal (−20.3°)",
+   "status": "blocked_missing_source",
+   "source_artifacts": [],
+   "generator": null,
+   "git_ref": null,
+   "preview": "previews/s02_rotation/frame_%04d.png",
+   "duration_s": 3.0,
+   "transition": "progressive_reveal",
+   "notes": "Derivable once s01's source exists: animate the 20.3° cw rotation and band placement. Angle and georeference are known (decomposition/meta/georeference.json).",
+   "chronology_note": "History: rotation was applied upstream, before canny_final.tiff existed (pre-repo, 2025)."
+  },
+  {
+   "id": "s03_canny_geometry",
+   "order": 3,
+   "title": "Extraction — the street network as pure line-work",
+   "status": "reconstructable",
+   "source_artifacts": [
+    "canny_final.tiff"
+   ],
+   "generator": null,
+   "git_ref": "0646dac",
+   "preview": "previews/s03_canny_geometry.png",
+   "duration_s": 3.0,
+   "transition": "crossfade",
+   "notes": "End state exists in repo. Transition from s02 if source obtained, else from s00.",
+   "chronology_note": "History: canny_final.tiff authored 2025-11-19 (upstream); entered the repo as stage-0 input at the initial import (2026-07-08)."
+  },
+  {
+   "id": "s04_master_cleanup",
+   "order": 4,
+   "title": "Cleanup — 24 artifacts removed, the canonical master",
+   "status": "reconstructable",
+   "source_artifacts": [
+    "diem_master_geometry_v1.tiff",
+    "qa/removal_manifest.csv",
+    "qa/before_after_west_blob_L32.png",
+    "qa/before_after_bottomright_dashes.png"
+   ],
+   "generator": null,
+   "git_ref": "0646dac",
+   "preview": "previews/s04_master_cleanup/frame_%04d.png",
+   "duration_s": 4.0,
+   "transition": "progressive_reveal",
+   "notes": "Exactly replayable: 8743 documented pixels across 24 components (removal_manifest.csv). Animate each removal with brief zoom-insets; qa before/after crops as reference.",
+   "chronology_note": "History: stage 1, 2026-07-07."
+  },
+  {
+   "id": "s05_extremity_partition",
+   "order": 5,
+   "title": "The regions arrive — two flanking panels",
+   "status": "reconstructable",
+   "source_artifacts": [
+    "extremities/inputs/left/whole.png",
+    "extremities/inputs/right/whole.png"
+   ],
+   "generator": null,
+   "git_ref": "dd74512",
+   "preview": "previews/s05_extremity_partition.png",
+   "duration_s": 3.0,
+   "transition": "crossfade",
+   "notes": "Starting partitions are panel-local: composite at global offsets (left +0, right +28048) before downsampling.",
+   "chronology_note": "History: the extremity partition PREDATES the diem repo — created in the fresco_building project (MIT, 2025); imported 2026-07-08. Narrative places it after the center master."
+  },
+  {
+   "id": "s06_extremity_optimization",
+   "order": 6,
+   "title": "Optimization — every region gets its true proportional area",
+   "status": "reconstructable",
+   "source_artifacts": [
+    "extremities/outputs/left/simple_convergence.gif",
+    "extremities/outputs/left/annotated_convergence.gif",
+    "extremities/outputs/right/simple_convergence.gif",
+    "extremities/outputs/right/annotated_convergence.gif",
+    "extremities/outputs/left/final_positions.json",
+    "extremities/outputs/right/final_positions.json"
+   ],
+   "generator": "cd extremities && python optimize.py both  (re-emits frames if needed)",
+   "git_ref": "dd74512",
+   "preview": "previews/s06_extremity_optimization/frame_%04d.png",
+   "duration_s": 6.0,
+   "transition": "progressive_reveal",
+   "notes": "REUSE: convergence GIFs exist (2808/2987 recorded steps) but are panel-local — re-render both panels side by side on the full canvas for canonical previews. 0.00% final area error is the payoff beat.",
+   "chronology_note": "History: the optimization ran in the fresco_building project (pre-repo, 2025); outputs integrated 2026-07-09 (dd74512). Chronologically BEFORE stage-2 decomposition — narrative order is dramaturgical."
+  },
+  {
+   "id": "s07_center_decomposition",
+   "order": 7,
+   "title": "Decomposition — banks, arrondissements, quartiers, superblocks, cells",
+   "status": "reconstructable",
+   "source_artifacts": [
+    "decomposition/viz/L1_macro_map.png",
+    "decomposition/viz/L2_arrondissements_map.png",
+    "decomposition/viz/L3_quartiers_map.png",
+    "decomposition/viz/L4_semantic_map.png",
+    "decomposition/viz/L5_superblocks_map.png"
+   ],
+   "generator": "cd pipeline/stage2 && python s07_viz.py  (regenerates the level maps)",
+   "git_ref": "0646dac",
+   "preview": "previews/s07_center_decomposition/frame_%04d.png",
+   "duration_s": 5.0,
+   "transition": "crossfade",
+   "notes": "Level maps are already full-canvas. Sequence L1->L2->L3->L4->L5 as overlay pulses on the master. Narrative position after s06 reads better — confirm at full-cut review.",
+   "chronology_note": "History: stage 2, 2026-07-08 (initial import 0646dac) — chronologically before the extremities were integrated into this repo."
+  },
+  {
+   "id": "s08_generation",
+   "order": 8,
+   "title": "Generation — each superblock and region receives its image",
+   "status": "future",
+   "source_artifacts": [],
+   "generator": null,
+   "git_ref": null,
+   "preview": "previews/s08_generation/frame_%04d.png",
+   "duration_s": 8.0,
+   "transition": "progressive_reveal",
+   "notes": "Stage 3/4. Capture rule: every accepted tile (starting with pilots L5_sb034, L5_seine_corridor strip, EXT_L_bretagne) saves a full-canvas snapshot at acceptance time — this stage's frames accumulate as the work happens.",
+   "chronology_note": "Future — chronology will match narrative from here on (capture rule)."
+  },
+  {
+   "id": "s09_compositing",
+   "order": 9,
+   "title": "Compositing — the fresco assembles",
+   "status": "future",
+   "source_artifacts": [],
+   "generator": null,
+   "git_ref": null,
+   "preview": "previews/s09_compositing/frame_%04d.png",
+   "duration_s": 5.0,
+   "transition": "progressive_reveal",
+   "notes": "Layer order per production/specs/fresco.yaml#compositing_order (draft). Snapshot after each layer lands: fills, corridor, islands, bridges, extremities, ink recomposite.",
+   "chronology_note": "Future — chronology will match narrative."
+  },
+  {
+   "id": "s10_seam_ornaments",
+   "order": 10,
+   "title": "Laurel and oak — the seams become the Paris coat of arms",
+   "status": "future",
+   "source_artifacts": [],
+   "generator": null,
+   "git_ref": "2855a4e",
+   "preview": "previews/s10_seam_ornaments/frame_%04d.png",
+   "duration_s": 4.0,
+   "transition": "progressive_reveal",
+   "notes": "Blocked on branch design (generation/prompt_tables/seam_ornaments.json is blocked_on_design). Laurel left, then oak right; git_ref marks the strategy decision, not artwork.",
+   "chronology_note": "Future — the strategy decision is 2026-07-09 (2855a4e); artwork does not exist."
+  },
+  {
+   "id": "s11_final_fresco",
+   "order": 11,
+   "title": "Diem — the finished fresco",
+   "status": "future",
+   "source_artifacts": [],
+   "generator": null,
+   "git_ref": null,
+   "preview": "previews/s11_final_fresco.png",
+   "duration_s": 6.0,
+   "transition": "crossfade",
+   "notes": "Final hold on the validated production master (production/masters/, once it exists).",
+   "chronology_note": "Future — chronology will match narrative."
+  }
+ ],
+ "order_semantics": "'order' is the NARRATIVE playback order (dramaturgical), not project chronology; per-stage 'chronology_note' preserves history"
+}

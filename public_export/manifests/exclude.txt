@@ -1,0 +1,38 @@
+# DENYLIST — MANDATORY EXCLUSIONS, always wins over include_candidates.txt.
+# Unlike the include list (candidates pending review), these are firm.
+# Defense in depth: even if an include pattern accidentally matches, these
+# must never reach the public repo.
+
+# internal state & process
+PROJECT_STATE.md
+LLM_START_HERE.md
+imports/**
+public_export/**
+registry/**
+
+# the artwork itself (full resolution)
+*.tif
+*.tiff
+production/masters/**
+production/print/**
+production/previews/**
+production/validation/**
+
+# curated artistic content (prompts are the recipe)
+generation/prompt_tables/*.json
+generation/prompt_tables/*.csv
+
+# workbench-only material
+pipeline/stage2/work/**
+pipeline/stage2/checkpoints/**
+process_film/previews/**
+qa/before_after_*.png
+extremities/inputs/**
+extremities/outputs/*/masks/**
+extremities/outputs/*/whole.png
+extremities/outputs/*/vertices_map.png
+decomposition/masks/**
+
+# verifier patterns (content scan, not paths): e-mail addresses, absolute
+# local paths (/Users/...), git identities, model API keys. The export
+# verifier must fail the build on any hit.

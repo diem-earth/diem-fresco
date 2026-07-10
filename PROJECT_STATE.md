@@ -1,16 +1,21 @@
 # PROJECT_STATE — Diem Fresco
 
-*Snapshot: 2026-07-09 · repo `diem-earth/diem-fresco` · main @ `7e88820` ·
-tag `v0.1-master-geometry-decomposition` @ `0646dac`*
+*Snapshot: 2026-07-10 · repo `diem-earth/diem-fresco` · main @ `2855a4e` ·
+tags `v0.1-master-geometry-decomposition` @ `0646dac`,
+`v0.2-global-fresco-structure` @ `2855a4e`*
 
 New session? Read [LLM_START_HERE.md](LLM_START_HERE.md) first.
 
 ## What the project is
 
-A printed fresco (2.88 × 0.45 m, 34 048 × 5 312 px, 300 dpi): the Paris Centre street
-network at 1:5000 (rotated 20.3° so the Grand Axis Étoile→Concorde→Louvre→Bastille→Nation
-runs horizontally), flanked by two panels tiling the remaining French regions as convex
-partial hexagons with areas proportional to their real surfaces. Target pipeline:
+A monumental printed fresco (canonical canvas 34 048 × 5 312 px; **physical
+dimensions TBD** — historically discussed around 7 × 1.8 m, must be validated
+with the print fabricator; the file's 300 dpi tag is a working assumption, not
+an approved print resolution — see `production/specs/fresco.yaml`): the Paris
+Centre street network (source map 1:5000, rotated 20.3° so the Grand Axis
+Étoile→Concorde→Louvre→Bastille→Nation runs horizontally), flanked by two
+panels tiling the remaining French regions as convex partial hexagons with
+areas proportional to their real surfaces. Target pipeline:
 `master geometry → decomposition → AI generation per region → compositing → print`.
 
 ## Repo structure
@@ -46,7 +51,12 @@ imports/   (gitignored) original zip archives already integrated
   L5 superblocks (78 avenue-bounded tiles + seine corridor) → L6 atomic cells (2 560).
   **Recommended generation hierarchy: generate at L5, condition prompts from L2/L3/L4,
   composite at L6** (rationale: `decomposition/reports/PHASE4_ARTISTIC_EVALUATION.md`).
-- **Stage 3 (zone prompts / AI generation) NOT STARTED.**
+- **Stage 3 planning EXISTS but is PROVISIONAL and UNCOMMITTED** (2026-07-10):
+  `generation/prompt_tables/` (93 unit records: 78 superblocks + Seine corridor
+  + 12 extremity regions + 2 seam ornaments), builder script, and
+  `docs/STAGE3_GENERATION_PLAN.md` with 3 pilot zones. It still needs the
+  artistic/schema refinement pass (see `docs/DELIVERABLES_ARCHITECTURE.md`,
+  step B) before being committed. **No artistic image generation has started.**
 
 ## Extremities pipeline status
 
@@ -55,6 +65,29 @@ imports/   (gitignored) original zip archives already integrated
   Hauts-de-France, Grand Est, AURA, Bourgogne-Franche-Comté, PACA, Corse.
   Masks (binary + RGBA) in `extremities/outputs/*/masks/`, panel-local coordinates.
 - No artistic treatment of the region polygons exists yet (only geometry + masks).
+
+## Deliverables architecture (2026-07-10 — prepared, UNCOMMITTED)
+
+Three final deliverables, each with a dedicated layer (umbrella doc:
+`docs/DELIVERABLES_ARCHITECTURE.md`):
+
+1. **`production/`** — the final fresco: `specs/fresco.yaml` (draft v0;
+   **physical print dimensions, effective dpi, substrate, profiles all TBD** —
+   fabricator validation required) + previews/masters/print/validation
+   placeholders.
+2. **`public_export/`** — future public repo (planning only): allowlist model,
+   `manifests/include_candidates.txt` (all entries provisional pending rights/
+   privacy/IP review gates) + mandatory `exclude.txt`; fresh-history snapshot,
+   never a filtered workbench history.
+3. **`process_film/`** — manifest-driven process film:
+   `manifest/stages.json` (12 stages, narrative order + chronology notes);
+   MP4 is the primary output, GIFs derived. **The original pre-rotation Paris
+   source map is still missing from the repo** — film stages s01–s02 are
+   blocked on it, and its license gates all public derivatives.
+
+Cross-cutting: `registry/artifacts.yaml` (roles canonical/derived/provisional/
+archived). Everything above exists in the working tree only — commit sequence
+A–E in `docs/DELIVERABLES_ARCHITECTURE.md`.
 
 ## Resolved decisions
 
@@ -81,16 +114,18 @@ imports/   (gitignored) original zip archives already integrated
 
 ## Next recommended tasks
 
-1. Specify the seam branches (open decision 1): style/scale/opacity study for the
-   laurel (left) and oak (right) motifs — no artwork generation until specified.
-2. Stage 3 kick-off: generate the per-L5-tile prompt table from
-   `decomposition/meta/regions_L0_L5.json` (id, quartier, arrondissement, L4 contents,
-   neighbor list) and validate on 2–3 pilot tiles (e.g. a Marais superblock, the Seine
-   corridor, one extremity region).
-3. Define the global style/palette contract at L1 (Rive Droite / Seine / Rive Gauche)
-   so pilot tiles are judged against it.
-4. Tag `v0.2-extremities` if a marker is wanted before stage 3 (repo currently untagged
-   at `dd74512`).
+Follow the commit sequence in `docs/DELIVERABLES_ARCHITECTURE.md`:
+
+1. **A** — commit the architecture layer (`production/`, `public_export/`,
+   `process_film/`, `registry/`, docs, this file).
+2. **B/C** — stage-3 artistic/schema refinement pass, then commit the refined
+   `generation/` layer.
+3. **D** — legacy regional-prompt import (⚠ source location unknown — the
+   `fresco_building` archive contains no prompt files).
+4. **E** — pilot generation (`L5_sb034`, Seine-corridor strip,
+   `EXT_L_bretagne`) with film capture from the first accepted tile.
+5. In parallel: resolve physical print dimensions with the fabricator; obtain
+   the original pre-rotation Paris source map (and verify its license).
 
 ## Commands to inspect / reproduce
 

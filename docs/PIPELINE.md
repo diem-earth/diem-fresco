@@ -2,8 +2,8 @@
 
 ## Full fresco architecture (three panels, one canvas)
 
-The fresco is a single 34 048 × 5 312 px canvas (300 dpi ≈ 2.88 × 0.45 m) composed of
-three panels:
+The fresco is a single 34 048 × 5 312 px canvas (file metadata 300 dpi; physical print
+dimensions TBD — see `production/specs/fresco.yaml`) composed of three panels:
 
 ```
 x: 0        5088                        28048        34048

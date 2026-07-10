@@ -2,8 +2,9 @@
 
 > New AI session? Start with [LLM_START_HERE.md](LLM_START_HERE.md).
 
-Canonical repository for the **Diem fresco**: a 2.88 m × 0.45 m printed artwork
-(34 048 × 5 312 px, 300 dpi) composed of **three panels** — the street network of central
+Canonical repository for the **Diem fresco**: a monumental printed artwork
+(canonical canvas 34 048 × 5 312 px; physical dimensions TBD, to be validated
+with the print fabricator) composed of **three panels** — the street network of central
 Paris (1:5000, rotated so the Grand Axis **Étoile → Concorde → Louvre → Bastille → Nation**
 runs horizontally) flanked by two convex partial-hexagon tilings of the surrounding
 French regions, their areas proportional to real surfaces (left 5 088 px: western

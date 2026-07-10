@@ -1,0 +1,201 @@
+# ============================================================================
+# Diem — canonical artifact registry
+# ============================================================================
+# Single index of every artifact family in the workbench. The three
+# deliverable layers (production/, public_export/, process_film/) reference
+# artifacts through this registry's roles — they never redefine geometry.
+#
+# role:
+#   canonical   source of truth; never regenerated or modified silently
+#   derived     regenerable from canonical artifacts via the recorded producer;
+#               safe to delete and rebuild
+#   provisional exists but not yet frozen/approved (or not yet committed)
+#   archived    kept for provenance only; nothing downstream may depend on it
+#
+# status: present | planned | missing_upstream
+#
+# Promotion rules: provisional -> canonical requires explicit approval (and a
+# commit); derived never becomes canonical without a freeze decision like the
+# stage-1 master's.
+
+registry_version: "0.2"
+
+geometry:
+  - id: source_map_paris_1_5000
+    path: null                 # NOT HELD — this is a missing REQUIRED upstream source
+    role: canonical            # would be canonical if held; recorded so nothing silently
+                               # substitutes for it
+    status: missing_upstream
+    producer: "official Paris plan; rotation + Canny applied upstream by Mathis Koroglu (2025-11-19 per docs/DATA_PROVENANCE.md)"
+    required_by: [process_film/s01, process_film/s02, "public_export source-map rights gate"]
+    notes: >
+      Absent from the repo and never has been in it. Obtaining it (or formally
+      deciding to do without) blocks film stages s01-s02; verifying its license
+      blocks publication of ALL derivatives (master, decomposition, viz).
+  - id: canny_final
+    path: canny_final.tiff
+    role: canonical
+    status: present
+    producer: upstream (see source_map_paris_1_5000)
+    consumers: [qa/reproduce_master.py, process_film/s03]
+  - id: master_geometry_v1
+    path: diem_master_geometry_v1.tiff
+    role: canonical            # derived-then-frozen; byte-reproducible
+    status: present
+    producer: qa/reproduce_master.py (self-verifying — aborts on any deviation)
+    validation: >
+      byte-reproducible from canny_final.tiff via qa/reproduce_master.py; the
+      8743 changed pixels (24 components) are enumerated in
+      qa/removal_manifest.csv. No content hash is recorded in the repo — if one
+      is wanted, record it explicitly (e.g. in this registry) from a fresh
+      computation rather than citing it from memory.
+    consumers: [everything downstream — the single geometric authority]
+    notes: "NEVER modify. Tiny white holes are geometry; AA is signal."
+  - id: master_geometry_png
+    path: diem_master_geometry_v1.png
+    role: derived
+    status: present
+    producer: conversion from the TIFF
+  - id: cleanup_provenance
+    path: [qa/removal_manifest.csv, qa/before_after_*.png, qa/master_overview.png]
+    role: canonical
+    status: present
+    consumers: [MASTER_GEOMETRY_REPORT.md, process_film/s04]
+
+decomposition:
+  - id: stage2_meta
+    path: decomposition/meta/   # regions_L0_L5.json, cells_L6.json, georeference.json
+    role: canonical             # regenerable from checkpoints, but frozen as the
+                                # interface all downstream stages consume — role is
+                                # "of record", like the stage-1 master
+    status: present
+    producer: pipeline/stage2/s05_assemble.py (from committed checkpoints)
+    validation: "L1/L2/L3/L5 tile the canvas pixel-exactly (sums asserted); georef RMS 38px (PROJECT_STATE/PHASE reports)"
+    consumers: [generation/prompt_tables, production compositing, decomposition/masks]
+    notes: "Geometry (bboxes, centroids, cells) derives from the upstream Paris map — publication is gated on source-map rights (public_export)."
+  - id: stage2_masks
+    path: decomposition/masks/  # per-region binaries, labelmaps, ink_mask.png
+    role: derived
+    status: present
+    producer: pipeline/stage2/s06_masks.py
+    consumers: [generation (mask-conditioned), production compositing (ink recomposite)]
+  - id: stage2_viz
+    path: decomposition/viz/
+    role: derived
+    status: present
+    producer: pipeline/stage2/s07_viz.py
+    consumers: [process_film/s07, public_export gallery]
+  - id: stage2_reports
+    path: decomposition/reports/
+    role: canonical             # decisions of record (PHASE1-4)
+    status: present
+  - id: external_sources
+    path: pipeline/sources/
+    role: canonical             # frozen snapshots — never re-fetch over these
+    status: present
+    notes: >
+      Two distinct licenses, both RECORDED in docs/DATA_PROVENANCE.md:
+      arrondissements/quartiers geojsons are Paris Open Data under Licence
+      Ouverte v2 (attribution Ville de Paris); the road/park/rail JSONs are
+      OSM via Overpass under ODbL 1.0 (attribution © OpenStreetMap
+      contributors). Share-alike implications for derived geometry: requires
+      review before export (public_export gates).
+  - id: stage2_pipeline
+    path: pipeline/stage2/      # s01-s07 + checkpoints/
+    role: canonical
+    status: present
+    notes: "work/*.npy intermediates are derived and gitignored."
+
+extremities:
+  - id: extremity_geometry
+    path: extremities/outputs/{left,right}/final_positions.json
+    role: canonical
+    status: present
+    producer: extremities/optimize.py
+    validation: "0.00% area error, convexity + ≤155° verified; 5088+22960+6000=34048"
+    consumers: [generation/prompt_tables, production compositing, process_film/s05-s06]
+    license: "MIT (copyright 2025) — recorded at extremities/LICENSE (imported with fresco_building)"
+  - id: extremity_masks
+    path: extremities/outputs/{left,right}/masks/
+    role: derived
+    status: present
+    notes: "Panel-local coordinates; right global_x = local_x + 28048."
+  - id: extremity_convergence_gifs
+    path: extremities/outputs/{left,right}/{simple,annotated}_convergence.gif
+    role: derived
+    status: present
+    consumers: [process_film/s06 (reuse), public_export gallery]
+  - id: extremity_inputs
+    path: extremities/inputs/
+    role: canonical             # frozen starting partition
+    status: present
+    consumers: [process_film/s05]
+
+generation:                     # stage 3 — currently UNCOMMITTED
+  - id: prompt_tables
+    path: generation/prompt_tables/*.json
+    role: provisional
+    status: present
+    producer: generation/scripts/build_prompt_tables.py (curated blocks preserved)
+    notes: >
+      UNCOMMITTED and pending the stage-3 refinement pass (see
+      docs/DELIVERABLES_ARCHITECTURE.md, step B) — do not treat the current
+      schema as frozen. Curated prompt content is PRIVATE (public_export).
+      Becomes canonical when prompts are approved + committed.
+  - id: prompt_table_csvs
+    path: generation/prompt_tables/*.csv
+    role: derived
+    status: present
+  - id: generated_tiles
+    path: null                  # location TBD (proposed: generation/outputs/)
+    role: provisional           # canonical once accepted into compositing
+    status: planned
+  - id: seam_ornament_artwork
+    path: null
+    role: provisional
+    status: planned
+    notes: "blocked_on_design — see generation/prompt_tables/seam_ornaments.json"
+
+production:
+  - id: fresco_spec
+    path: production/specs/fresco.yaml
+    role: provisional           # canonical once status: approved
+    status: present
+  - id: composition_previews
+    path: production/previews/
+    role: derived
+    status: planned
+  - id: archival_masters
+    path: production/masters/
+    role: canonical             # once validated
+    status: planned
+  - id: print_deliverables
+    path: production/print/
+    role: canonical
+    status: planned
+  - id: validation_records
+    path: production/validation/
+    role: canonical
+    status: planned
+
+process_film:
+  - id: film_manifest
+    path: process_film/manifest/stages.json
+    role: provisional           # canonical once committed and first previews land
+    status: present
+  - id: film_previews
+    path: process_film/previews/
+    role: derived               # committed (film source material), regenerable per manifest
+    status: planned
+  - id: film_outputs
+    path: process_film/outputs/
+    role: derived
+    status: planned
+    notes: "gitignored — always regenerable from manifest + previews"
+
+legacy:
+  - id: fresco_building_archive
+    path: imports/fresco_building-main.zip
+    role: archived
+    status: present
+    notes: "gitignored, disk-only. Fully integrated into extremities/ (verified). Contains NO prompt files — the 'legacy regional prompts' referenced for stage-3 step 3 must come from elsewhere (open decision)."

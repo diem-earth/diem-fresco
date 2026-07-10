@@ -1,0 +1,121 @@
+# ============================================================================
+# Diem fresco — canonical production specification
+# ============================================================================
+# Machine-readable source of truth for compositing and print preparation.
+# Values marked TBD are open decisions — downstream code must refuse to
+# proceed on a TBD it depends on, never guess.
+# Lifecycle: draft -> approved (freeze before any compositing implementation).
+
+spec_version: "0.1"
+status: draft
+
+canvas:                              # canonical digital canvas — frozen
+  width_px: 34048
+  height_px: 5312
+  aspect_ratio: "6.41:1"
+  orientation_note: "center rotated 20.3° cw so the Grand Axis Étoile→Nation is horizontal"
+
+resolution:
+  file_metadata_dpi: 300             # DPI tag carried by the master TIFF/PNG — a WORKING
+                                     # ASSUMPTION inherited from the source map, not an
+                                     # approved print resolution
+  effective_print_dpi: TBD           # approved output resolution — not decided
+  ground_m_per_px_center: 0.4219     # digital georeference fact (center panel only),
+                                     # independent of any print resolution
+  map_scale_center_at_300dpi: "1:5000"  # the printed map scale is 1:5000 ONLY at an
+                                        # effective 300 dpi output; it changes with size
+
+physical:                            # final artwork — NOTHING here is approved
+  width_cm: TBD
+  height_cm: TBD
+  substrate: TBD
+  printing_method: TBD
+  bleed_mm: TBD
+  printer_profile: TBD
+  warning: >
+    Physical dimensions MUST be validated with the print fabricator before any
+    print deliverable is produced. Never derive physical size from the file's
+    dpi metadata: at 300 dpi the canvas would print ~288 x 45 cm, but the
+    project has historically been discussed as a monumental fresco around
+    7 m x 1.8 m. Note also the aspect-ratio discrepancy to resolve: the canvas
+    is 6.41:1 while 7 x 1.8 m is 3.89:1 (framing/margins/crop decision needed).
+
+panels:
+  left:
+    x0: 0
+    width_px: 5088
+    content: "W France regions — 6 convex partial-hexagon facets"
+    local_to_global_x_offset: 0
+  center:
+    x0: 5088
+    width_px: 22960
+    content: "Paris Centre street network (masks/meta are full-canvas global coords)"
+  right:
+    x0: 28048
+    width_px: 6000
+    content: "E France regions — 6 convex partial-hexagon facets"
+    local_to_global_x_offset: 28048   # global_x = local_x + 28048
+
+seams:
+  left:
+    ornament: laurel                  # Paris coat of arms reference
+    zigzag_px_global: [[4707, 0], [4078, 1531], [4118, 2481], [3741, 3547], [3408, 5311]]
+    map_ink_beyond_seam_pct: 0.12
+  right:
+    ornament: oak
+    zigzag_px_global: [[28172, 0], [28235, 458], [28884, 1523], [28806, 2358], [29418, 3674], [29527, 5311]]
+    map_ink_beyond_seam_pct: 1.03     # ≈ 307k px the oak branch must absorb
+
+color:
+  master_geometry: "grayscale uint8, black ink (0) on white (255), 7 anti-aliasing levels — never binarize"
+  working_space: TBD                  # proposed: sRGB IEC61966-2.1 during generation, convert late
+  print_profile: TBD                  # see physical: block — depends on process + substrate
+  bit_depth_masters: TBD              # proposed: 16-bit for the archival master
+
+source_layers:                        # canonical inputs to compositing (see registry/artifacts.yaml)
+  master_geometry: diem_master_geometry_v1.tiff
+  decomposition_meta: decomposition/meta/
+  decomposition_masks: decomposition/masks/
+  ink_mask: decomposition/masks/ink_mask.png
+  extremity_geometry: extremities/outputs/{left,right}/final_positions.json
+  extremity_masks: extremities/outputs/{left,right}/masks/   # panel-local coordinates
+  prompt_tables: generation/prompt_tables/                   # provisional (stage 3)
+  generated_tiles: TBD                # do not exist yet (stage 3/4)
+  seam_ornaments: TBD                 # do not exist yet (blocked_on_design)
+
+compositing_order:                    # PROPOSED v0 — confirm before implementation
+  - background_wash                   # TBD: pure white vs unifying wash (open question)
+  - center_l5_tiles                   # generated fills, clipped cell-exact at L6
+  - seine_corridor
+  - island_overlays                   # Île de la Cité, Île Saint-Louis
+  - bridge_decks                      # over river AND banks (stage-2 isolation rule)
+  - extremity_region_fills            # panel-local -> global via offsets
+  - ink_linework_recomposite          # master geometry on top of everything generated,
+                                      # including dilated avenue bands over L5 joins
+  - seam_ornament_laurel_left
+  - seam_ornament_oak_right
+  - final_grade                       # TBD: whether a global pass exists at all
+
+deliverables:
+  archival_master:
+    description: "full-resolution lossless master, layered if feasible"
+    format: TBD                       # proposed: TIFF (flattened) + layered working file
+  print_master:
+    description: "print-ready file for the monumental print"
+    format: TBD
+    physical_params: "see the physical: block — all TBD until fabricator validation"
+  web_preview:
+    description: "downsampled preview for screens"
+    format: TBD
+  process_film:
+    description: "see process_film/ — gif_simple, gif_annotated, mp4_exhibition"
+
+validation:                           # every compositing step must pass these
+  - id: ink_integrity
+    rule: "re-compositing the ink layer leaves every master ink pixel identical (linework authority)"
+  - id: canvas_dimensions
+    rule: "output is exactly 34048x5312 at every step"
+  - id: panel_sum
+    rule: "5088 + 22960 + 6000 == 34048"
+  - id: mask_disjointness
+    rule: "generated content clipped to its mask; L6 clipping leaves no orphan pixels"
